@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ludo Lite — 2-Player Dice Race</title>
+  <meta name="description" content="A sleek, lightweight 2-player browser dice race game based on simplified Ludo mechanics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header Area -->
+    <header class="game-header">
+      <div class="logo">
+        <span class="logo-icon">🎲</span>
+        <h1>LUDO <span class="badge">LITE</span></h1>
+      </div>
+      <p class="subtitle">2-Player Pass & Play Race</p>
+    </header>
+
+    <!-- Main Game Section -->
+    <main class="game-main">
+      <!-- Player Status Cards -->
+      <section class="players-bar">
+        <div class="player-card player-1 active" id="player-card-0">
+          <div class="player-avatar red-avatar">
+            <span>P1</span>
+          </div>
+          <div class="player-info">
+            <span class="player-name">Player 1</span>
+            <span class="player-progress" id="p0-progress">Position: 0 / 29</span>
+          </div>
+          <div class="turn-indicator">Active Turn</div>
+        </div>
+
+        <div class="vs-divider">VS</div>
+
+        <div class="player-card player-2" id="player-card-1">
+          <div class="player-avatar blue-avatar">
+            <span>P2</span>
+          </div>
+          <div class="player-info">
+            <span class="player-name">Player 2</span>
+            <span class="player-progress" id="p1-progress">Position: 0 / 29</span>
+          </div>
+          <div class="turn-indicator">Active Turn</div>
+        </div>
+      </section>
+
+      <!-- Track Board View -->
+      <section class="board-container">
+        <div class="board-grid" id="board-grid">
+          <!-- 30 Cells generated dynamically via JS for exact placement -->
+        </div>
+
+        <!-- Floating Player Tokens -->
+        <div class="token p0-token" id="token-0" title="Player 1 Token">
+          <div class="token-inner"></div>
+        </div>
+        <div class="token p1-token" id="token-1" title="Player 2 Token">
+          <div class="token-inner"></div>
+        </div>
+      </section>
+
+      <!-- Dashboard & Controls -->
+      <section class="controls-panel">
+        <div class="dice-section">
+          <div class="dice-wrapper">
+            <div class="dice" id="dice" aria-label="Dice visual">
+              <div class="dice-face" id="dice-face">🎲</div>
+            </div>
+          </div>
+          <div class="dice-status" id="dice-status">Press <strong>Roll Dice</strong> or hit <strong>Spacebar</strong></div>
+        </div>
+
+        <div class="action-buttons">
+          <button id="roll-btn" class="btn btn-primary btn-roll">
+            <span class="btn-icon">🎲</span> Roll Dice
+          </button>
+          <button id="reset-btn" class="btn btn-secondary">
+            <span class="btn-icon">🔄</span> New Game
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Winner Modal Overlay -->
+    <div class="modal-overlay hidden" id="winner-modal" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <div class="trophy-icon">🏆</div>
+        <h2 id="winner-title">PLAYER 1 WINS!</h2>
+        <p id="winner-message">Congratulations! You reached the finish line first.</p>
+        <button id="modal-reset-btn" class="btn btn-primary btn-large">
+          Play Again 🚀
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
